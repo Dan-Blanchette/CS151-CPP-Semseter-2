@@ -1,0 +1,10 @@
+How to Play: shoot the "Zombies" (Shapes). Don't let them
+hit you too many times or it's game over.
+
+Controls:
+
+W = Up
+S = Down
+D = Right
+A = Left
+Space_Bar = Shoot
