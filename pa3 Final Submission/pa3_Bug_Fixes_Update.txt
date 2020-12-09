@@ -1,0 +1,30 @@
+Dan Blanchette
+
+*********DEBUGGING/PATCH NOTES*************
+THIS DEBUG WAS DONE WHILE IMPLEMENTING THE WHILE LOOP INTO OUR REVGENE PORTION OF MAIN-5.CPP
+
+1)-LINES  53 & 120: Removed +2 from the stop condon assignment to stop and stop2. 
+	This was causing the vector to move 2 elements past the last element resulting 
+	in an out of bounds state which in turn resulted in the gene's position and size 
+	being incorrectly displayed.
+
+2)-Moved startCondon.clear() and stopCondon.clear() to lines 101 and 102. 
+	This was to prevent the data from being cleared multiple times.
+
+3)-Added revGene as a function call to allow the program to "reverse" the genome first
+	 before being assigned to the variable spinMeRightRound. This allowed 
+	for the correct sorting of output on line 117 after the findCondon calls on lines 112 - 115.
+
+4)-Swapped startIndex and stopIndex to line 138 with geneLength to line 139 to match instructors
+	desired output for formatting.
+
+5)- LINES 96 & 164: Added (fileName + "_rev_genes.fna ") and (fileName + "_genes.fna ") 
+	to take the entered file name by the reasearcher for univeral consistancy to 
+	the original file name in the creation of the new report files from our program.
+
+6)- Lines 70 & 137: Changed the output function from i + 1 to numPotentialGenes + 1.
+	using i has the potential to skip a possible gene when a start condon is detected
+	but no end condon is found. Thus reporting in our initial report Gene # 101 was skipped
+	resulting in the output to the file being 99, 100, 102. This fix allows numPotential genes
+	and numRevGenes to accurately relate the found genes from the loop and not account for any
+	skipped results.
